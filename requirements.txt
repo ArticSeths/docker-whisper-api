@@ -1,0 +1,4 @@
+flask
+flask-cors
+luminoth
+markupsafe==1.1.1
