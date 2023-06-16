@@ -27,6 +27,8 @@ def handler():
 
     # For each file, let's store the results in a list of dictionaries.
     results = []
+    # The user can specify the response format with the `format` in the form data.
+    response_format = request.form.get('format', 'text')
 
     # Loop over every file that the user submitted.
     for filename, handle in request.files.items():
@@ -41,7 +43,7 @@ def handler():
         # Now we can store the result object for this file.
         results.append({
             'filename': filename,
-            'transcript': result['text'],
+            'transcript': result,
         })
 
     # This will be automatically converted to JSON.
